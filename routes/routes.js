@@ -22,7 +22,6 @@ router.get('/code128', function(req, res, next) {
     codes.loadModules(["code128"], bc_options);
     var bc =  codes.create("code128", text);
   
-    bc = generate_barcode(text, bc_options, ["code128"], "code128");
     res.type('image/png');
     res.send(bc);
 });
