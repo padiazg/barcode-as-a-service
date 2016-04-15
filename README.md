@@ -11,4 +11,4 @@ Can generate:
 GPL v3
 
 #Keep in touch
-Patricio Diaz [padiazg@gmail.com]
+Patricio Diaz <padiazg@gmail.com>
