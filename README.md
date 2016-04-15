@@ -1,2 +1,2 @@
-# Barcode-as-service
+# Barcode-service
 Service to generate barcode images
