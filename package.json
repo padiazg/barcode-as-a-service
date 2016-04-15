@@ -1,0 +1,18 @@
+{
+    "name": "barcode-server",
+    "version": "1.0.0",
+    "keywords": ["barcode", "server", "ean13", "code128", "qr"],
+    "author": "pato",
+    "contributors": [],
+    "dependencies": {
+        "express"           : "~4.13.0",
+        "rescode"           : "0.1.10",
+        "body-parser"       : "~1.13.2",
+        "morgan"            : "~1.6.1",
+        "method-override"   : "~1.0.0"
+    },
+    "scripts": {
+        "start": "node barcode-server.js"
+    }
+
+}
