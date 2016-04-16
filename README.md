@@ -21,9 +21,9 @@ Point your browser to http://localhost:3000/ to see a basic example
 The syntax is: 
 `http://serverhost:port/<barcode>?text=<your_code>`
 
-where
+where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode solicited and ___text___ is the code to generate.
 
-Examples:
+###Examples:
 
 **EAN13**  
 `http://localhost:3000/ean13?text=7840058004215`
