@@ -7,7 +7,7 @@ Can generate:
 * QR
 
 #Install
-You need [node.js](https://nodejs.org) and NPM(https://www.npmjs.com/) to run this project.
+You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project.
 
 Install dependencies:
 ``npm install``
