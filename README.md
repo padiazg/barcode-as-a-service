@@ -31,19 +31,19 @@ Examples:
 **CODE39**  
 `http://localhost:3000/code39?text=12345678`
 
-**CODE128**
+**CODE128**  
 `http://localhost:3000/code128?text=98380d7d-85df-456f-901d-3b325ee86e07`
 
-**PDF417**
+**PDF417**  
 `http://localhost:3000/pdf417?text=patricio+antonio+diaz+gimenez`
 
-**QR**
+**QR**  
 `http://localhost:3000/qr?text=patricio+antonio+diaz+gimenez`
 
 #License
 GPL v3
 
 #Keep in touch
-Patricio Diaz <padiazg@gmail.com>
+Patricio Diaz <padiazg@gmail.com>  
 
 > Written with [StackEdit](https://stackedit.io/).
