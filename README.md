@@ -21,11 +21,14 @@ Point your browser to http://localhost:3000/ to see a basic example
 The syntax is: 
 `http://serverhost:port/<barcode>?text=<your_code>`
 
+where
+
 Examples:
-**EAN13**
+
+**EAN13**  
 `http://localhost:3000/ean13?text=7840058004215`
 
-**CODE39**
+**CODE39**  
 `http://localhost:3000/code39?text=12345678`
 
 **CODE128**
