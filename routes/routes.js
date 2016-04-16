@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/code128', function(req, res, next) {
-    var code = req.query.code;
+    var value = req.query.value;
 
     var bc_options = { 
         "includetext"     : false
@@ -20,14 +20,14 @@ router.get('/code128', function(req, res, next) {
     };
 
     codes.loadModules(["code128"], bc_options);
-    var bc =  codes.create("code128", code);
+    var bc =  codes.create("code128", value);
   
     res.type('image/png');
     res.send(bc);
 });
 
 router.get('/code39', function(req, res, next) {
-    var code = req.query.code;
+    var value = req.query.value;
     
     var bc_options = { 
         "includetext"     : false
@@ -38,7 +38,7 @@ router.get('/code39', function(req, res, next) {
     };
     
     codes.loadModules(["code39"], bc_options);
-    var bc =  codes.create("code39", code);
+    var bc =  codes.create("code39", value);
    
     res.type('image/png');
     res.send(bc);
@@ -47,7 +47,7 @@ router.get('/code39', function(req, res, next) {
 });
 
 router.get('/ean13', function(req, res, next) {
-    var code = req.query.code;
+    var value = req.query.value;
 
     var bc_options = { 
          "includetext"    : true
@@ -58,7 +58,7 @@ router.get('/ean13', function(req, res, next) {
     };
   
     codes.loadModules(["ean2", "ean5", "ean8", "ean13"], bc_options);
-    var bc =  codes.create("ean13", code);
+    var bc =  codes.create("ean13", value);
     
     res.type('image/png');
     res.send(bc);
@@ -66,7 +66,7 @@ router.get('/ean13', function(req, res, next) {
 });
 
 router.get('/pdf417', function(req, res, next) {
-    var code = req.query.code;
+    var value = req.query.value;
 
     var bc_options = { 
          "inkspread": 0
@@ -75,7 +75,7 @@ router.get('/pdf417', function(req, res, next) {
     };
   
     codes.loadModules(["pdf417"], bc_options);
-    var bc =  codes.create("pdf417", code);
+    var bc =  codes.create("pdf417", value);
     
     res.type('image/png');
     res.send(bc);
@@ -83,7 +83,7 @@ router.get('/pdf417', function(req, res, next) {
 });
 
 router.get('/qr', function(req, res, next) {
-    var code = req.query.code;
+    var value = req.query.value;
 
     var bc_options = { 
         "eclevel": "Q" , 
@@ -93,7 +93,7 @@ router.get('/qr', function(req, res, next) {
     };
    
     codes.loadModules(["qrcode"], bc_options);
-    var bc =  codes.create("qrcode", code);
+    var bc =  codes.create("qrcode", value);
     
     res.type('image/png');
     res.send(bc);
