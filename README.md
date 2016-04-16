@@ -19,26 +19,26 @@ Run the service
 Point your browser to http://localhost:3000/ to see a basic example
 
 The syntax is: 
-`http://serverhost:port/<barcode>?text=<your_code>`
+`http://serverhost:port/<barcode>?value=<your_code>`
 
-where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode solicited and ___text___ is the code to generate.
+where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode or code solicited and ___value___ is the value to generate.
 
 ###Examples:
 
 **EAN13**  
-`http://localhost:3000/ean13?text=7840058004215`
+`http://localhost:3000/ean13?value=7840058004215`
 
 **CODE39**  
-`http://localhost:3000/code39?text=12345678`
+`http://localhost:3000/code39?value=12345678`
 
 **CODE128**  
-`http://localhost:3000/code128?text=98380d7d-85df-456f-901d-3b325ee86e07`
+`http://localhost:3000/code128?value=98380d7d-85df-456f-901d-3b325ee86e07`
 
 **PDF417**  
-`http://localhost:3000/pdf417?text=patricio+antonio+diaz+gimenez`
+`http://localhost:3000/pdf417?value=patricio+antonio+diaz+gimenez`
 
 **QR**  
-`http://localhost:3000/qr?text=patricio+antonio+diaz+gimenez`
+`http://localhost:3000/qr?value=patricio+antonio+diaz+gimenez`
 
 #License
 GPL v3
