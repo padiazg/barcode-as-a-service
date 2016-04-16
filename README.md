@@ -40,6 +40,9 @@ where ___server___ and ___port___ are where you are running the service, ___barc
 **QR**  
 `http://localhost:3000/qr?value=patricio+antonio+diaz+gimenez`
 
+#Roadmap
+This service uses [rescode](https://www.npmjs.com/package/rescode) to generate the codes. This component can generate a lot of codes but I only needed those used in this project. It's possible to implement the rest of the codes if someone needs it. 
+
 #License
 GPL v3
 
