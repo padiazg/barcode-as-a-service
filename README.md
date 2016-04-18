@@ -1,5 +1,5 @@
 #Barcode as a service
-A service tha can generate codes for:
+A service that can generate codes for:
 * EAN13
 * CODE39
 * CODE128
