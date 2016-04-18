@@ -53,7 +53,8 @@ router.get('/ean13', function(req, res, next) {
          "includetext"    : true
         ,"guardwhitespace": true 
         ,"inkspread"      : 0
-        ,"scaleX"         : 2 
+        ,"scaleX"         : 2
+        ,"scaleY"         : 2
         //,"textyoffset"    : -15
     };
   
