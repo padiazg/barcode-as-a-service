@@ -1,6 +1,8 @@
 var express = require('express');
 var path    = require('path');
 var codes   = require('rescode');
+var fs      = require('fs');
+var gm      = require('gm');
 
 var router  = express.Router();
 
@@ -8,123 +10,112 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname + '/../views/index.html'));
 });
 
-router.get('/code128', function(req, res, next) {
-    var value = req.query.value;
-    var scale = req.query.scale;    
-    scale=scale?scale:0;
-
-    var bc_options = { 
-        "includetext"     : false
-        ,"guardwhitespace": false 
-        ,"inkspread"      : 0
-        ,"scaleX"         : scale
-        ,"scaleY"         : scale
-    };
-
-    codes.loadModules(["code128"], bc_options);
-    var bc =  codes.create("code128", value);
-  
-    res.type('image/png');
-    res.send(bc);
-});
-
-router.get('/code39', function(req, res, next) {
-    var value = req.query.value;
-    var scale = req.query.scale;    
-    scale=scale?scale:0;    
+ router.get('/:code', function(req, res) {   
+    // wich code is requested?
+    var code   = req.params.code.toLowerCase();
     
-    var bc_options = { 
-        "includetext"     : false
-        ,"guardwhitespace": false 
-        ,"inkspread"      : 0
-        ,"scaleX"         : scale 
-        ,"scaleY"         : scale 
-    };
-    
-    codes.loadModules(["code39"], bc_options);
-    var bc =  codes.create("code39", value);
-   
-    res.type('image/png');
-    res.send(bc);
-});
-
-router.get('/ean13', function(req, res, next) {
+    // get parameters, overrides general parameters
     var value = req.query.value;
+    
+    // scale
     var scale = req.query.scale;    
     scale=scale?scale:0;
     
-    var bc_options = { 
-         "includetext"    : true
-        ,"guardwhitespace": true 
-        ,"inkspread"      : 0
-        ,"scaleX"         : scale
-        ,"scaleY"         : scale
-    };
-  
-    codes.loadModules(["ean2", "ean5", "ean8", "ean13"], bc_options);
-    var bc =  codes.create("ean13", value);
+    // ourput format
+    var format = req.query.fmt;    
+    format=format?format.toLowerCase():'png';
     
-    res.type('image/png');
-    res.send(bc);
-
-});
-
-router.get('/pdf417', function(req, res, next) {
-    var value = req.query.value;
-    var scale = req.query.scale;    
-    scale=scale?scale:0;
+    var bc_options={};
+    var modules=[];
     
-    var bc_options = { 
-         "inkspread": 0
-        ,"scaleX"   : scale
-        ,"scaleY"   : scale
-    };
-  
-    codes.loadModules(["pdf417"], bc_options);
-    var bc =  codes.create("pdf417", value);
-    
-    res.type('image/png');
-    res.send(bc);
+    switch (code) {
+        case 'code128':
+            bc_options = { 
+                "includetext"     : true
+                ,"guardwhitespace": true 
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["code128"];
+            break;
+            
+        case 'code39':
+            bc_options = { 
+                 "includetext"    : true
+                ,"guardwhitespace": true 
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["code39"];
+            break;
+        
+        case 'ean13':
+            bc_options = { 
+                 "includetext"    : true
+                ,"guardwhitespace": true 
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["ean2", "ean5", "ean8", "ean13"];
+            break;
+            
+        case 'pdf417':
+            bc_options = { 
+                 "includetext"    : false
+                ,"guardwhitespace": true
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["pdf417"];
+            break;
+        
+        case 'qr':
+            bc_options = { 
+                 "includetext"    : false
+                ,"guardwhitespace": true
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["qrcode"];
+            code="qrcode";
+            break;
+            
+        case 'datamatrix':
+            bc_options = { 
+                 "includetext"    : false
+                ,"guardwhitespace": true
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["datamatrix"];
+            break;
+        
+        default: 
+            console.log('Unknown:' + code);
+            res.status(404).send();
+            break;
+    } // switch (code)  ...
 
-});
-
-router.get('/qr', function(req, res, next) {
-    var value = req.query.value;
-    var scale = req.query.scale;    
-    scale=scale?scale:0;
+    codes.loadModules(modules, bc_options);
+    var bc=codes.create(code, value);    
     
-    var bc_options = { 
-        "eclevel": "Q" , 
-        "version": "4", 
-        "scaleX" : scale, 
-        "scaleY" : scale
-    };
-   
-    codes.loadModules(["qrcode"], bc_options);
-    var bc =  codes.create("qrcode", value);
-    
-    res.type('image/png');
-    res.send(bc);
-
-});
-
-router.get('/datamatrix', function(req, res, next) {
-    var value = req.query.value;
-    var scale = req.query.scale;    
-    scale=scale?scale:0;
-    
-    var bc_options = { 
-         "inkspread": 0
-        ,"scaleX"   : scale
-        ,"scaleY"   : scale
-    };
-  
-    codes.loadModules(["datamatrix"], bc_options);
-    var bc =  codes.create("datamatrix", value);
-    
-    res.type('image/png');
-    res.send(bc);
-
+    // format output
+    if (format==='jpg') {
+        gm(bc).toBuffer('JPG',function (err, buffer) {
+            if (err) return handle(err);
+            res.type('image/jpeg');
+            res.send(buffer); 
+        });
+    } else {
+        res.type('image/png');
+        res.send(bc);           
+    }
 });
 
 module.exports = router;
