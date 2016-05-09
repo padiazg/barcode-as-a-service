@@ -24,7 +24,6 @@ router.get('/', function(req, res, next) {
     // ourput format
     var format = req.query.fmt;    
     format=format?format.toLowerCase():'png';
-    console.log('output_format:'+format);
     
     var bc_options={};
     var modules=[];
@@ -112,7 +111,6 @@ router.get('/', function(req, res, next) {
             if (err) return handle(err);
             res.type('image/jpeg');
             res.send(buffer); 
-            console.log('done!');
         });
     } else {
         res.type('image/png');
