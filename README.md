@@ -19,9 +19,15 @@ Run the service
 Point your browser to http://localhost:3000/ to see a basic example
 
 The syntax is: 
-`http://serverhost:port/<barcode>?value=<your_code>&scale=<value>`
+`http://serverhost:port/<barcode>?value=<your_code>&scale=<value>&fmt=<PNG|JPG>`
 
-where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode or code solicited, ___value___ is the value to generate and ___scale___ is is the scale for the image (defaults to 0).
+where:
+
+___server___ and ___port___ are where you are running the service
+___barcode___ is the barcode or code solicited
+___value___ is the value to generate
+___scale___ is is the scale for the image (defaults to 0)
+and ___fmt___ is the desired image format, posible values are PNG and JPG, defaults to PNG.
 
 ###Examples:
 
