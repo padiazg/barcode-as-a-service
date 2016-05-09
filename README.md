@@ -23,10 +23,10 @@ The syntax is:
 
 where:
 
-___server___ and ___port___ are where you are running the service
-___barcode___ is the barcode or code solicited
-___value___ is the value to generate
-___scale___ is is the scale for the image (defaults to 0)
+___server___ and ___port___ are where you are running the service  
+___barcode___ is the barcode or code solicited  
+___value___ is the value to generate  
+___scale___ is is the scale for the image (defaults to 0)  
 and ___fmt___ is the desired image format, posible values are PNG and JPG, defaults to PNG.
 
 ###Examples:
