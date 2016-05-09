@@ -19,9 +19,9 @@ Run the service
 Point your browser to http://localhost:3000/ to see a basic example
 
 The syntax is: 
-`http://serverhost:port/<barcode>?value=<your_code>`
+`http://serverhost:port/<barcode>?value=<your_code>&scale=<value>`
 
-where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode or code solicited and ___value___ is the value to generate.
+where ___server___ and ___port___ are where you are running the service, ___barcode___ is the barcode or code solicited, ___value___ is the value to generate and ___scale___ is is the scale for the image (defaults to 0).
 
 ###Examples:
 
@@ -39,6 +39,9 @@ where ___server___ and ___port___ are where you are running the service, ___barc
 
 **QR**  
 `http://localhost:3000/qr?value=patricio+antonio+diaz+gimenez`
+
+**DataMatrix**  
+`http://localhost:3000/datamatrix?value=patricio+antonio+diaz+gimenez`
 
 #Roadmap
 This service uses [rescode](https://www.npmjs.com/package/rescode) to generate the codes. This component can generate a lot of codes but I only needed those used in this project. It's possible to implement the rest of the codes if someone needs it. 
