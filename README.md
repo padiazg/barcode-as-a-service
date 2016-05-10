@@ -7,10 +7,12 @@ A service that can generate codes for:
 * QR
 
 #Install
-You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project.
+You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project. In order to generate output images in JPG format you'll also need [GraphicsMagick](http://www.graphicsmagick.org/).
 
 Install dependencies:
 ``npm install``
+
+* In case you need to generate images in JPG format, download and install the version of GraphicsMagick that suits your system. For this project there is no need to worry about GhostScript and fonts.
 
 Run the service
 ``node barcode-service``
