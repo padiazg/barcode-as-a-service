@@ -95,6 +95,17 @@ router.get('/', function(req, res, next) {
             };
             modules=["datamatrix"];
             break;
+
+        case 'interleaved2of5':
+            bc_options = { 
+                 "includetext"    : true
+                ,"guardwhitespace": true
+                ,"inkspread"      : 0
+                ,"scaleX"         : scale
+                ,"scaleY"         : scale
+            };
+            modules=["interleaved2of5"];
+            break;
         
         default: 
             console.log('Unknown:' + code);
