@@ -5,6 +5,8 @@ A service that can generate codes for:
 * CODE128
 * PDF417
 * QR
+* DataMatrix
+* Interleaved 2 of 5
 
 #Install
 You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project. In order to generate output images in JPG format you'll also need [GraphicsMagick](http://www.graphicsmagick.org/).
