@@ -51,6 +51,9 @@ and ___fmt___ is the desired image format, posible values are PNG and JPG, defau
 **DataMatrix**  
 `http://localhost:3000/datamatrix?value=patricio+antonio+diaz+gimenez`
 
+**Interleaved2of5**  
+`http://localhost:3000/interleaved2of5?value=1234567890`
+
 #Roadmap
 This service uses [rescode](https://www.npmjs.com/package/rescode) to generate the codes. This component can generate a lot of codes but I only needed those used in this project. It's possible to implement the rest of the codes if someone needs it. 
 
