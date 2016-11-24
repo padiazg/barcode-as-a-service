@@ -25,6 +25,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'static')));
 
-var server = app.listen(process.env.PORT || 3000, function() {
+var server = app.listen(process.env.PORT || 3002, function() {
    console.log('Barcode server listening on port %d', server.address().port);
 });
