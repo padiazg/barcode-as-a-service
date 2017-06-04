@@ -1,4 +1,4 @@
-#Barcode as a service
+# Barcode as a service  
 A service that allows you to generate barcodes for:
 * EAN13
 * CODE39
@@ -8,7 +8,7 @@ A service that allows you to generate barcodes for:
 * DataMatrix
 * Interleaved 2 of 5
 
-#Install
+# Install  
 You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project. In order to generate output images in JPG format you'll also need [GraphicsMagick](http://www.graphicsmagick.org/).
 
 Install dependencies:
@@ -19,7 +19,7 @@ Install dependencies:
 Run the service
 ``node barcode-service``
 
-#Usage
+# Usage  
 Point your browser to http://localhost:3000/ to see a basic example
 
 The syntax is: 
@@ -33,7 +33,7 @@ ___value___ is the value to generate
 ___scale___ is is the scale for the image (defaults to 0)  
 and ___fmt___ is the desired image format, posible values are PNG and JPG, defaults to PNG.
 
-###Examples:
+### Examples:  
 
 **EAN13**  
 `http://localhost:3000/ean13?value=7840058004215`
@@ -56,13 +56,11 @@ and ___fmt___ is the desired image format, posible values are PNG and JPG, defau
 **Interleaved2of5**  
 `http://localhost:3000/interleaved2of5?value=1234567890`
 
-#Roadmap
+# Roadmap  
 This service uses [rescode](https://www.npmjs.com/package/rescode) to generate the codes. This component can generate a lot of codes but I only needed those used in this project. It's possible to implement the rest of the codes if someone needs it. 
 
-#License
+# License  
 GPL v3
 
-#Keep in touch
+# Keep in touch  
 Patricio Diaz <padiazg@gmail.com>  
-
-> Written with [StackEdit](https://stackedit.io/).
