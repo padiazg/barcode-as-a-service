@@ -8,6 +8,9 @@ A service that allows you to generate barcodes for:
 * DataMatrix
 * Interleaved 2 of 5
 
+Try it live [here](https://barcode-render.herokuapp.com/)
+
+
 # Install  
 You need [node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) to run this project. In order to generate output images in JPG format you'll also need [GraphicsMagick](http://www.graphicsmagick.org/).
 
